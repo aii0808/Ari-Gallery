@@ -1,0 +1,369 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Menggunakan Google Font jika diimpor */
+    background-color: #1a1a1a; /* Warna latar belakang gelap */
+    color: #f0f0f0; /* Warna teks terang */
+    padding-top: 56px; /* Agar konten tidak tertutup navbar fixed-top */
+}
+
+/* Navbar kustom */
+.navbar {
+    background-color: #000 !important; /* Navbar lebih gelap */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: #e50914 !important; /* Warna brand ala Netflix */
+}
+
+.nav-link {
+    color: #f0f0f0 !important;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #e50914 !important; /* Warna hover ala Netflix */
+}
+
+.dropdown-menu.dropdown-menu-dark {
+    background-color: #1a1a1a; /* Latar belakang dropdown gelap */
+    border: 1px solid #333;
+}
+
+.dropdown-item {
+    color: #f0f0f0;
+}
+
+.dropdown-item:hover, .dropdown-item:active {
+    background-color: #e50914;
+    color: #fff;
+}
+
+
+/* Hero Section (Index Page) */
+.hero-section {
+    height: 80vh; /* Tinggi hero section */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden; /* Pastikan tidak ada scroll di hero section */
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-section > .container {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Tambah bayangan teks agar lebih terbaca */
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p.lead {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-buttons .btn {
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.hero-buttons .btn-primary {
+    background-color: #e50914; /* Warna tombol utama */
+    border-color: #e50914;
+}
+
+.hero-buttons .btn-primary:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+.hero-buttons .btn-outline-light {
+    border-color: #f0f0f0;
+    color: #f0f0f0;
+}
+
+.hero-buttons .btn-outline-light:hover {
+    background-color: #f0f0f0;
+    color: #e50914;
+}
+
+/* Section titles */
+h2 {
+    color: #e50914;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Film Cards (Grid and Modal) */
+.film-card {
+    background-color: #2b2b2b;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    height: 100%; /* Pastikan semua kartu memiliki tinggi yang sama dalam grid */
+    display: flex;
+    flex-direction: column;
+}
+
+.film-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+}
+
+.film-card img {
+    width: 100%;
+    height: 250px; /* Tinggi poster yang konsisten */
+    object-fit: cover; /* Pastikan gambar mengisi area tanpa distorsi */
+    border-bottom: 1px solid #333;
+}
+
+.film-card-body {
+    padding: 15px;
+    flex-grow: 1; /* Biarkan konten mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Untuk mendorong tahun ke bawah jika ada ruang */
+}
+
+.film-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.film-card-year {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+/* Carousel custom styling */
+.carousel-inner .carousel-item .row {
+    display: flex;
+    flex-wrap: nowrap; /* Mencegah item carousel pindah baris */
+    justify-content: center;
+    gap: 15px; /* Jarak antar kartu di carousel */
+}
+
+.carousel-inner .carousel-item .row .col-6,
+.carousel-inner .carousel-item .row .col-md-2 {
+    flex: 0 0 auto; /* Pastikan kolom tidak fleksibel */
+    width: 16.66%; /* 1/6 lebar untuk 6 film per slide */
+    max-width: 16.66%;
+    padding: 0; /* Hapus padding default Bootstrap di sini */
+}
+
+@media (max-width: 767.98px) {
+    .carousel-inner .carousel-item .row .col-6 {
+        width: 33.33%; /* 1/3 lebar untuk 3 film per slide di mobile */
+        max-width: 33.33%;
+    }
+}
+@media (max-width: 575.98px) {
+    .carousel-inner .carousel-item .row .col-6 {
+        width: 50%; /* 1/2 lebar untuk 2 film per slide di mobile kecil */
+        max-width: 50%;
+    }
+    .film-card img {
+        height: 200px; /* Kecilkan tinggi poster di mobile */
+    }
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(229, 9, 20, 0.8); /* Warna ikon navigasi carousel */
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Perkecil area klik kontrol */
+}
+
+/* Modal styling */
+.modal-content {
+    border-radius: 10px;
+    border: none;
+}
+
+.modal-header, .modal-footer {
+    border-color: #333 !important; /* Warna border di modal */
+}
+
+.modal-body img {
+    max-height: 400px; /* Batasi tinggi gambar di modal */
+    object-fit: contain; /* Pastikan gambar terlihat penuh */
+    margin-bottom: 15px;
+}
+
+/* Styling untuk input search di modal */
+#searchInput, #usernameInput, #passwordInput {
+    color: #f0f0f0;
+    background-color: #333;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+#searchInput::placeholder, #usernameInput::placeholder, #passwordInput::placeholder {
+    color: #aaa;
+}
+
+#searchInput:focus, #usernameInput:focus, #passwordInput:focus {
+    background-color: #444;
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.btn-primary {
+    background-color: #e50914;
+    border-color: #e50914;
+}
+
+.btn-primary:hover {
+    background-color: #ff0000;
+    border-color: #ff0000;
+}
+
+/* Sorting dropdown in results section */
+#sortBy {
+    background-color: #333;
+    color: #f0f0f0;
+    border: 1px solid #555;
+}
+
+#sortBy option {
+    background-color: #333;
+    color: #f0f0f0;
+}
+
+/* Loading spinner */
+#loading-spinner {
+    display: none; /* Awalnya tersembunyi */
+}
+
+/* --- ABOUT ME PAGE STYLING --- */
+.about-hero-section {
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    overflow: hidden; /* Penting untuk video/GIF background */
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 56px; /* Offset for fixed navbar */
+}
+
+.about-video-bg, .about-gif-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    filter: brightness(0.6); /* Sedikit gelap agar teks lebih terbaca */
+}
+
+.about-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Lapisan hitam transparan di atas video */
+    z-index: 1;
+}
+
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.profile-photo {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border: 5px solid #e50914; /* Border warna merah */
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.about-hero-content .display-3 {
+    font-size: 3.5rem;
+    font-weight: 700;
+}
+
+.about-hero-content .lead {
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+.about-hero-content .fs-5 {
+    line-height: 1.7;
+}
+
+.max-width-800 {
+    max-width: 800px;
+}
+
+/* Skill Cards */
+.skill-card {
+    background-color: #2b2b2b !important; /* Warna card keahlian */
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    background-color: #3a3a3a !important;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5) !important;
+}
+
+.skill-card h4 {
+    color: #e50914; /* Warna judul keahlian */
+    font-weight: 700;
+}
+
+/* Footer (Konsisten di semua halaman) */
+footer {
+    background-color: #000 !important;
+    border-top: 1px solid #333;
+}
+
+/* Login link active state on About page */
+.navbar-nav .nav-item .nav-link#loginLinkAbout.active {
+    color: #e50914 !important; /* Ensure active link style on about page */
+}
