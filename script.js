@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
             year: 2020,
             genre: 'Horror, Apocalypse, Thriller',
             synopsis: 'Seorang siswa SMA yang kesepian pindah ke apartemen baru setelah tragedi keluarga. Segera, manusia di sekitarnya mulai berubah menjadi monster buas.',
-            poster: './img/sweet_home.WEBP', // Sudah lokal
+            poster: './img/sweet_home.webp', // Sudah lokal
             director: 'Lee Eung-bok',
             cast: 'Song Kang, Lee Jin-wook, Lee Si-young',
             trailerLink: 'https://www.youtube.com/watch?v=7M_vN9m-yCg' // TODO: GANTI INI DENGAN TRAILER ASLI Sweet Home
